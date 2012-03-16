@@ -1,0 +1,33 @@
+#create_user_form input {
+  width: 95%;
+}
+
+#create_user_form input[type=checkbox] {
+  width: 15px;
+}
+#create_user_form div.form_submit {
+  width: 150px;
+  font: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+}
+
+#create_user_form div.form_button {
+  width: 150px;
+  height: 23px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: buttonface;
+  text-align: center;
+}
+
+#create_user_form label.required_label {
+  font-weight: bold;
+}
+
+#create_user_form label.optional_label {
+  font-weight: normal;
+}
+
+#create_user_form label.error_label {
+  color: red;
+  font-size: 0.8em;
+}

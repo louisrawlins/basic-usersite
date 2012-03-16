@@ -1,0 +1,89 @@
+<div id="manageUsers" class="container">
+  <h1>Manage users</h1>
+
+  <div class="span-19">
+    <header class="headerbar">
+      <h1>Users List</h1>
+      <a class="small right button" href="<%= url('/admin/users/new') %>">Add User</a>
+    </header>
+
+    <table id="user-list" class="styled">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th class="ca">User Type</th>
+          <th class="ca">Actions</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+      <% users.each do |u| %>
+      <tr>
+        <td><%= u.email %></td>
+        <td class="first-name"><%= u.firstname %></td>
+        <td class="last-name"><%= u.lastname%></td>
+        <td class="ca" data-user-type="<%= u.usertype %>"><%= u.usertype %></td>
+        <td class="actions">
+          <a href="<%= url("/admin/user/#{u.id}/edit") %>">Edit</a> | 
+          <% if u.active %>
+          <a href="<%= url("/admin/user/#{u.id}/deactivate") %>">De-activate</a> | 
+          <% else %>
+          <a href="<%= url("/admin/user/#{u.id}/activate") %>">Activate</a> | 
+          <% end %>
+          <a href="<%= url("/admin/user/#{u.id}/reset_pwd") %>">Reset password</a> | 
+          <a href="<%= url("/admin/user/#{u.id}/destroy") %>" class="delete_confirm" >Delete</a>
+        </td>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<% content_for :js do %>
+<script type="text/javascript" charset="utf-8" >
+  $(document).ready(function () {
+    $( "#dialog:ui-dialog" ).dialog( "destroy" );
+    $('#user-list .delete_confirm').click(function(e){
+      e.preventDefault();
+      var dialog = "Are you sure you want to delete "+$(e.target).closest('tr').find('[data-user-type]').data('user-type')+" "+$(e.target).closest('tr').find('.first-name').html()+" "+$(e.target).closest('tr').find('.last-name').html()+"?";
+        
+      var href = $(e.target).attr('href');
+      
+      $("#delete_confirm .confirm-text").html(dialog);
+
+      $("#delete_confirm").dialog({
+        title: '',
+        autoOpen: true,
+        draggable: false,
+        resizable: false,
+        modal: true,
+        width: 400,
+        open: function(event, ui) { $(".ui-dialog-titlebar-close").hide(); }
+      });
+      $('#delete_confirm .delete').click(function(){
+        $('#delete_confirm .confirm-buttons button').hide();
+        $('#delete_confirm .confirm-buttons span').html('deleting...').removeClass('left').addClass('right');
+        window.location = href;
+      });
+      $('#delete_confirm .cancel').click(function(){
+        $('#delete_confirm').dialog( "close" );
+      });
+
+      return false;
+
+    });
+  });
+</script>
+<% end %>
+
+<div id="delete_confirm" style="display:none;">
+  <h4 class="confirm-text"></h4> 
+  <div class="confirm-buttons">
+    <span class="left" style="color: #AAA; padding-top: 15px;">You can’t undo this action.</span>
+    <button class="right delete" type="button">Delete User</button>
+    <button class="right grey cancel" type="button">Cancel</button>
+  </div><!-- / -->
+</div>

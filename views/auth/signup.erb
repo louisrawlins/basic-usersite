@@ -1,0 +1,42 @@
+<div id="signup_page" class="login-box">
+  <h1>Register New Account</h1>
+  <div class="login-wrapper">
+    <form action="<%= url('/signup') %>" method="post">
+      <div class="field">
+        <label for="user_email">Email</label>
+        <input id="user_email" name="email" size="30" type="text" />
+      </div>
+
+      <div class="field">
+        <label for="user_email_confirmation">Confirm Email</label>
+        <input id="user_email_confirmation" name="email_confirmation" size="30" type="text" />
+      </div>
+      
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="user_password" name="password" size="30" type="password" />
+      </div>
+        
+      <div class="field">
+        <label for="password_confirmation">Confirm Password</label>
+        <input id="user_password_confirmation" name="password_confirmation" size="30" type="password" />
+      </div>
+        
+      <div class="field">
+        <label for="firstname">First Name</label>
+        <input id="user_firstname" name="firstname" size="30" type="text" />  
+      </div>
+      
+      <div class="field">
+        <label for="lastname">Last Name</label>
+        <input id="user_lastname" name="lastname" size="30" type="text" />  
+      </div>
+      
+      <div class="submit field">
+        <input type="submit" value="Sign Up" />
+      </div>      
+    </form>
+  </div>
+
+  <a class="right help-link" href="<%= url('/login') %>">Already have account? LOGIN</a>
+</div>

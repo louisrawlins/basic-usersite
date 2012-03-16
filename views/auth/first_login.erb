@@ -1,0 +1,30 @@
+<% content_for :js do %>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#first_login_box").dialog({
+      title: 'Update Your Password',
+      autoOpen: true,
+      draggable: false,
+      resizable: false,
+      modal: true,
+      open: function(event, ui) { $(".ui-dialog-titlebar-close").hide(); }
+    });
+  });
+</script>
+<% end %>
+
+<div id="first_login_box" class="login">
+  <form id="firstlogin" action="<%= url('/firstlogin') %>" method="post">
+    <div class="field">
+      <label for="password">New Password</label>
+      <input type="password" id="password" name="password" />
+    </div>
+    <div class="field">
+      <label for="password_confirmation">Confirm Password</label>
+      <input type="password" id="password_confirmation" name="password_confirmation" />
+    </div>
+    <div class="submit field">
+      <input type="submit" value="Submit" />
+    </div>
+  </form>
+</div>

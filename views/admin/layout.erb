@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/css/application.css">
+  <link type="text/css" href="/css/ui-darkness/jquery-ui-1.8.16.custom.css" rel="stylesheet" />	
+  
+  <%= yield_content :css %>
+  
+  <script type="text/javascript" src="/js/jquery.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>
+  <script type="text/javascript" src="/js/jquery.ui.touch-punch.min.js"></script>
+  <script type="text/javascript" src="/js/jquery.cookie.js"></script>
+  <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="/js/jquery.ui.timepicker.js"></script>
+  <script type="text/javascript" src="/js/jshashtable-2.1.js"></script>
+  <script type="text/javascript" src="/js/jquery.numberformatter-1.2.2.jsmin.js"></script>
+  <script type="text/javascript" src="/js/app_wide.js"></script>
+
+  <%= yield_content :js %>
+
+  <!--[if lte IE 9]>
+    <script type="text/javascript" src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body data-page="<%= request.path[1..-1] %>">
+  
+  <section id="flashes">
+    <% if flash[:login_error] %>
+      <div class="flash error"><%= flash[:login_error] %></div>
+    <% end %>
+    <%= erb :'shared/_flash' %>
+  </section>
+
+
+  <div id="wrap">
+    <%= erb :'admin/_header' %>
+      
+    <div id="content-wrapper">
+
+
+      <div id="content" class="container">
+      
+      <% if current_user %>
+        <nav id="navigation">
+          <ul>
+            <li class="<%= 'selected' if request.path == '/admin/home' %>">
+              <%= link_to "Home", "/admin/home", :id => "dashboard-link" %>
+            </li>
+            <li class="<%= 'selected' if request.path =~ /^\/admin/ %>">
+              <%= link_to "Admin", "/admin/users", :id => "admin-link" %>
+            </li>
+            <li class="<%= 'selected' if request.path == '/profile' %>">
+              <%= link_to "Settings", "/profile", :id => "settings-link" %>
+            </li>
+          </ul>
+
+        <ul id="footer">
+          <li>
+            <a href="#">Contact</a>
+          </li>
+          <li>
+            <a href="#">Home</a>
+          </li>
+        </ul>
+
+      </nav>
+      <% end %>
+
+        <div id="admin-navigation" class="navigation">
+          <%#= link_to "Users", "/admin/users", :class => "admin-nav-link" %>
+        </div>
+        
+        <%= yield %>
+      </div>
+    </div>
+  
+  </div>
+
+</body>
+</html>

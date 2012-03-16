@@ -1,0 +1,146 @@
+body{
+	margin: 0px;
+	padding: 0px;
+}
+html, body {height: 100%;}
+/* REQUIRED BUTTON STYLES: */		
+button { 
+	position: relative;
+	border: 0; 
+	padding: 0;
+	cursor: pointer;
+	overflow: visible; /* removes extra side padding in IE */
+	-webkit-border-radius: 3px; 
+	-moz-border-radius: 3px; 
+	border-radius: 3px;
+}
+
+button::-moz-focus-inner {
+	border: none;  /* overrides extra padding in Firefox */
+}
+
+button span { 
+	position: relative;
+	display: block; 
+	white-space: nowrap;	
+}
+textarea, input { 
+	-webkit-border-radius: 3px; 
+	-moz-border-radius: 3px; 
+	border-radius: 3px; 
+	border: solid 1px #888; 
+	font-size:1em;
+	padding: 6px 10px;
+	margin: 0;
+	font-size: 14px;
+
+	outline: none;
+	-moz-outline: none;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	/* Safari and Google Chrome only - fix margins */
+	button span {
+		margin-top: -1px;
+	}
+}
+
+button.black { 
+	padding:.25em 3em;  
+	font-size:1em; 
+	text-align: center; 
+	background-color: black; 
+}
+	
+button.black span {
+	padding:.6em;  
+	color:#fff;
+}
+	
+button.black:hover, button.blackBtnHover { /* the redundant class is used to apply the hover state with a script */
+	background-position: right -210px; 
+}
+	
+button.black:hover span, button.blackBtnHover span {
+	background-position: 0 -70px;
+}
+
+#wrap {
+	min-height: 100%;
+	height: 100%;
+	position: relative;
+	min-width: 960px;
+}
+
+#wrap > header {
+	background-color: #262626;
+}
+
+#footer {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	border-top: 1px solid #111;
+} 
+
+
+#footer li {
+	padding: 0;
+	border-top: 1px solid #333;
+	border-bottom: 1px solid #111;
+} 
+
+
+#footer li a {
+	display: inline-block;
+	width: 100%;
+	height: 20px !important;
+	background: none !important;
+	color: #b2babc;
+	font-size: 11px;
+	text-decoration: none;
+	text-align: right;
+	padding-top: 10px !important;
+	border: none !important;
+}
+
+#footer a:hover {
+	color: #F1F3F4;
+}
+
+#profile_page{
+}
+
+#profile_page h1{
+	font-size: 1.2em;
+	font-weight: normal;
+	line-height: 1.6em;
+	color: black;
+	text-align:center;
+	width:90%;
+}
+#profile_page .profile{
+	width:100%;
+}
+#profile_page td{
+	font-size: .8em;
+	padding:.5em;
+}
+
+#profile_page .filler{
+	width:2em;
+}
+#profile_page .bottom_info{
+	width:90%;
+}
+#profile_page .marginLeft{
+	padding-left:6em;
+}
+
+#profile_submit {
+	margin: 20px 0 0 144px;
+}
+
+.text-align-center{	
+	text-align:center;
+}

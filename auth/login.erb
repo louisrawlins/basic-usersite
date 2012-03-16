@@ -1,0 +1,15 @@
+<div class="login-wrapper">
+  <form id="login_form" action="<%= url('/login') %>" method="post">
+    <div class="field">
+      <label for="email">Email</label>
+      <input id="user_email" name="email" size="30" type="email" />
+    </div>  
+    <div class="field">
+      <label for="password">Password</label>
+      <input id="user_password" name="password" size="30" type="password" />
+    </div>
+    <div class="submit field">
+      <input type="submit" value="Login" />
+    </div>
+  </form>
+</div>

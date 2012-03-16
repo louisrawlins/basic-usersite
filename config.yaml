@@ -1,0 +1,15 @@
+vm_legacy_url:
+  local: mysql://vmdevro:noom6aiT-Pha4aojo@dev.vminc.co:3306/vm
+  test:  mysql://vmdevro:noom6aiT-Pha4aojo@dev.vminc.co:3306/vm
+  development: mysql://appreadonly:77brickbrick@vmprod-readonly-replica.czbifitqwd0o.us-west-1.rds.amazonaws.com/vm
+  production:  mysql://appreadonly:77brickbrick@vmprod-readonly-replica.czbifitqwd0o.us-west-1.rds.amazonaws.com/vm
+
+storage_url:
+  local: sqlite://#{Dir.pwd}/basic-usersite.sqlite3
+  test: sqlite://#{Dir.pwd}/vm_test.sqlite3
+  development: mysql://root:kl33nex@localhost/basic-usersite
+  production:  mysql://root:kl33nex@localhost/basic-usersite
+
+remote_syslog:
+  development: syslog://logs.papertrailapp.com:52890/dev
+  production:  syslog://logs.papertrailapp.com:52890/prod

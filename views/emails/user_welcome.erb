@@ -1,0 +1,5 @@
+<h2>Hello, <%= "#{user.firstname} #{user.lastname}" %>!</h2>
+<p>You are now registered for your new basic user site user account.  Please follow the link to log in.</p>
+<a href="<%= login_url %>">Click here to Logging In.</a>
+
+<p>Your temporary password is <%= user.password %></p>

@@ -1,0 +1,117 @@
+<% content_for :css do %>
+  <link type="text/css" rel="stylesheet" href="/css/jquery.taggedselect.css" />
+  <link type="text/css" rel="stylesheet" href="/css/users.css" />
+<% end %>
+
+<% content_for :js do %>
+  <script src="http://cdn.jquerytools.org/1.2.6/tiny/jquery.tools.min.js"></script>
+  <script type='text/javascript' src='/js/isin.js'></script>
+  <script type='text/javascript' src='/js/jquery.taggedselect.js'></script>
+  <script type='text/javascript' src='/js/users.js'></script>
+<% end %>
+
+<%
+  action_url = '/admin/users/create'
+  action_url = "/admin/user/#{user.id}/update" unless user.id.nil? 
+%>
+
+<section id="wizard">
+  
+  <% form_for user, action_url, method: 'POST', id: 'admin_user_form' do |f| %>
+  <div>
+    <fieldset>
+      <div class="left span-12">
+        <div class="field">
+          <%= f.label :firstname, :caption => 'First Name', :class => 'required_label' %>
+          <%= f.text_field :firstname %>
+        </div>
+
+        <div class="field">
+          <%= f.label :lastname, :caption => 'Last Name', :class => 'required_label' %>
+          <%= f.text_field :lastname %>
+        </div>
+
+        <div class="field">
+          <%= f.label :title, :caption => 'Job Title', :class => 'optional_label' %>
+          <%= f.text_field :title %>
+        </div>
+
+        <div class="field">
+          <%= f.label :email, :caption => 'Email', :class => 'required_label' %>
+          <%= f.text_field :email %>
+        </div>
+
+        <div class="field">
+          <%= f.label :email_confirmation, :caption => 'Confirm Email', :class => 'required_label' %>
+          <%= f.text_field :email_confirmation, :value => user.email %>
+        </div>
+
+        <% if user.id.nil? %>
+        <div class="field">
+          <%= label_tag :sent_mail,
+                :caption => 'Send invitation email',
+                :class => 'required_label'
+          %>
+          <%= check_box_tag :send_mail, checked: true %>
+        </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :mobile_phone, :caption => 'Mobile Phone', :class => 'optional_label' %>
+          <%= f.text_field :mobile_phone %>
+        </div>
+
+        <div class="field">
+          <%= f.label :phone, :caption => 'Phone', :class => 'optional_label' %>
+          <%= f.text_field :phone %>
+        </div>
+
+        <div class="field">
+          <%= f.label :fax, :caption => 'Fax', :class => 'optional_label' %>
+          <%= f.text_field :fax %>
+        </div>
+
+      </div>
+      <div class="left span-10">
+        <div class="field">
+          <%= f.label :address1, :caption => 'Street Address 1', :class => 'optional_label' %>
+          <%= f.text_field :address1 %>
+        </div>
+
+        <div class="field">
+          <%= f.label :address2, :caption => 'Street Address 2', :class => 'optional_label' %>
+          <%= f.text_field :address2 %>
+        </div>
+
+        <div class="field">
+          <%= f.label :zip, :caption => 'Zip', :class => 'optional_label' %>
+          <%= f.text_field :zip %>
+        </div>
+
+        <div class="field">
+          <%= f.label :city, :caption => 'City', :class => 'required_label' %>
+          <%= f.text_field :city %>
+        </div>
+
+        <div class="field">
+          <%= f.label :state, :caption => 'State', :class => 'required_label' %>
+          <%= f.text_field :state %>
+        </div>
+
+        <div class="field disabled">
+          <%= f.label :country, :caption => 'Country', :class => 'required_label' %>
+          <%= f.text_field :country, :value => 'USA', :disabled => true %>
+        </div>
+        <div class="wizard-nav">
+          <input class="right finish" type="submit" value="<%= user.id.nil? ? "Create" : "Update" %>" />
+        </div>
+        
+      </div>
+
+      
+    </fieldset>
+    
+  </div>
+  <% end %>
+  
+</section>

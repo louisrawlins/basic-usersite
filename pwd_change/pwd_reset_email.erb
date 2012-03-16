@@ -1,0 +1,4 @@
+<h2>Hello, <%= user.firstname + ' ' + user.lastname %>!</h2>
+
+<p>Password reset was requested for your user on this basic user site. If you did not requested password reset, ignore this letter.</p>
+<p>To reset your password, click <a href="<%= url("/pwd_change?token=" + token) %>">here</a>.</p>

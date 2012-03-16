@@ -1,0 +1,16 @@
+<div id="change_pwd_page" class="login-box">
+  <form id="change_pwd_form" action="<%= url('/change_pwd') %>" method="post">
+    <h1>Enter new password</h1>
+    <div class="field">
+      <label for="password">New password</label>
+      <input id="new_password" name="password" type="password" />
+    </div>  
+    <div class="field">
+      <label for="password_confirmation">Confirmation</label>
+      <input id="password_confirmation" name="password_confirmation" type="password" />
+    </div>  
+    <div class="submit field">
+      <input type="submit" value="Change password" />
+    </div>
+  </form>
+</div>

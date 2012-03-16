@@ -1,0 +1,80 @@
+<% content_for :js do %>
+  <script type='text/javascript' src='/js/profile.js'></script>
+<% end %>
+
+<div id="profile_page" class="container">
+<h1><%= current_user.username %>'s Profile</h1>
+
+<% form_for current_user, '/profile', :method => 'POST', :id => 'profile_form' do |f| %>
+<fieldset>
+  <div class="left span-12">
+    <div class="field">
+      <%= f.label :firstname, :caption => 'First Name', :class => 'required_label' %>
+      <%= f.text_field :firstname %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :lastname, :caption => 'Last Name', :class => 'required_label' %>
+      <%= f.text_field :lastname %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :title, :caption => 'Job Title', :class => 'optional_label' %>
+      <%= f.text_field :title %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :mobile_phone, :caption => 'Mobile Phone', :class => 'optional_label' %>
+      <%= f.text_field :mobile_phone %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :phone, :caption => 'Phone', :class => 'optional_label' %>
+      <%= f.text_field :phone %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :fax, :caption => 'Fax', :class => 'optional_label' %>
+      <%= f.text_field :fax %>
+    </div>
+    
+  </div>
+  
+  <div class="left span-10">
+    
+    <div class="field">
+      <%= f.label :address1, :caption => 'Street Address 1', :class => 'optional_label' %>
+      <%= f.text_field :address1 %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :address2, :caption => 'Street Address 2', :class => 'optional_label' %>
+      <%= f.text_field :address2 %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :zip, :caption => 'Zip', :class => 'optional_label' %>
+      <%= f.text_field :zip %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :city, :caption => 'City', :class => 'required_label' %>
+      <%= f.text_field :city %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :state, :caption => 'State', :class => 'required_label' %>
+      <%= f.text_field :state %>
+    </div>
+    
+  </div>
+  <div class="clear"></div>
+  
+  <div class="left">
+    <%= f.submit "Update", :id => 'profile_submit', :class => 'class finish' %>
+  </div>
+  
+</fieldset>
+<% end %>
+
+</div>

@@ -1,0 +1,82 @@
+
+/* root element for tabs  */
+.tabs { 
+  list-style:none; 
+  margin:0 !important; 
+  padding:0;
+  height:30px;
+  border-bottom:1px solid #666; 
+}
+
+/* single tab */
+.tabs li { 
+  float:left;  
+  text-indent:0;
+  padding:0;
+  margin:0 !important;
+  list-style-image:none !important; 
+}
+
+/* link inside the tab. uses a background image */
+.tabs li { 
+  color: #666;
+  cursor: pointer;
+  font-size: 1.3em;
+  font-weight: bold;
+  float: left;
+  padding: ;
+  width: 480px;
+  background: #eee;
+}
+
+.tabs .current { 
+  color: white;
+  cursor: auto;
+  background: #222;
+  overflow: hidden;
+}
+
+.wizard-nav {
+  clear: both;
+  margin-top: 50px;
+  overflow: hidden;
+}
+
+/* Different widths for tabs: use a class name: w1, w2, w3 or w2 */
+
+
+/* width 1 */
+.tabs .w1       { background-position: -519px 0; width:134px; }
+
+/* width 2 */
+.tabs .w2       { 
+  width: auto;
+  padding: 15px 10px 15px 40px;
+  display: block;
+  margin: 0;
+  background: #ddd;
+}
+.tabs .w2:hover   { background: #d0d0d0; text-decoration: none; }
+.tabs .w2.current { background: #222; }
+
+
+/* width 4 */
+.tabs .w4 { width:194px; }
+
+
+/* initially all panes are hidden */ 
+.panes {
+  border: 1px solid #DDD;
+  clear: left;
+  border-radius: 0 0 3px 3px;
+  padding: 40px 40px 20px 40px;
+  background: #f8f8f2;
+}
+
+.panes .pane {
+  display:none;   
+}
+
+#admin_user_form .field label {
+  width: 160px;
+}
